@@ -10,14 +10,35 @@ public class Burner {
   public void plusButton(){
     switch(setting) {
       case OFF:
-        setting = j
+        setting = LOW;
+        break;
+			case LOW:
+        setting = MEDIUM;
+        break;
+			case MEDIUM:
+        setting = HIGH;
         break;
     }
   }
   public void minusButton(){
-
+		switch(setting) {
+      case HIGH:
+        setting = MEDIUM;
+        break;
+			case MEDIUM:
+        setting = LOW;
+        break;
+			case LOW:
+        setting = OFF;
+        break;
+    }
   }
-
+	public void updateTemperature(){
+		//Update timer and temperature as shown in PDF
+	}
+	public void display(){
+		
+	}
 }
 /*
     A constructor that sets the temperature to COLD and the setting to OFF
@@ -27,5 +48,5 @@ public class Burner {
     Both of these functions will set timer.
     updateTemperature() will be called (hypothetically) every minute. This method will update the timer and temperature, as shown in the pdf.
     display() will show the status of the burner, in the format shown in the figure below. You should make use of the toString() method of the Setting enum for part of the display.
-
+	
 */
