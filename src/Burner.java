@@ -3,11 +3,17 @@ public class Burner {
   private enum Temp { BLAZING, HOT, WARM, COLD }
   private Temp temperature;
   private Setting setting;
+	private int timer = 0;
+	private static final int TIME_DURATION = 2;
   public Burner(){
     temperature = COLD;
     setting = OFF;
   }
+	public boolean isBlazing(){
+		return temperature == BLAZING;
+	}
   public void plusButton(){
+		timer = TIME_DURATION;
     switch(setting) {
       case OFF:
         setting = LOW;
@@ -21,6 +27,7 @@ public class Burner {
     }
   }
   public void minusButton(){
+		timer = TIME_DURATION;
 		switch(setting) {
       case HIGH:
         setting = MEDIUM;
@@ -37,7 +44,20 @@ public class Burner {
 		//Update timer and temperature as shown in PDF
 	}
 	public void display(){
-		
+		switch(temperature) {
+      case COLD:
+        System.out.print("cooool");
+        break;
+			case WARM:
+        System.out.print("warm");
+        break;
+			case HOT:
+        System.out.print("CAREFUL");
+        break;
+			case BLAZING:
+        System.out.print("VERY HOT! DON'T TOUCH");
+        break;
+    }
 	}
 }
 /*
