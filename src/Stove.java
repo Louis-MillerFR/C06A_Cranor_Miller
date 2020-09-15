@@ -1,3 +1,5 @@
+// Louis Miller and Shane Cranor
+
 import java.util.ArrayList;
 
 /**
@@ -30,7 +32,15 @@ public class Stove {
 	 **** You must write the following method ****
 	 */
 	public void displayStove() {
-
+    boolean isBlazing = false;
+		
+		for (int i=0; i<NUM_BURNERS; i++){
+			burners.get(i).display();
+			isBlazing = isBlazing || burners.get(i).isBlazing();
+		}
+		if(isBlazing){
+			System.out.println("RED LIGHT - HOT BURNER ALERT");
+		}
 	}
 	
 	/**
@@ -112,7 +122,7 @@ public class Stove {
 		// Ensure temperatures don't update till time has passed
 		System.out.println("\nStove waiting for time to elapse ");
 		stove.displayStove();
-		stove.timePassing(1);
+		stove.timePassing(69);
 		System.out.println("\nStove in final state ");
 		stove.displayStove();	
 	}
